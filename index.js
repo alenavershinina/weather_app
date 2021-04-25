@@ -2,13 +2,12 @@ const express = require('express')
 const app = express()
 const port = 3000;
 const https = require('https');
-const bodyParser = require('body-parser');
 const env = require("dotenv");
 env.config();
 
 app.use(express.static("public"));
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }));
 
 app.post("/", (req, res) => {
     const city = req.body.city;
